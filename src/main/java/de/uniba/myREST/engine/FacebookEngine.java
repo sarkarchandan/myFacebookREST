@@ -69,6 +69,7 @@ public class FacebookEngine {
                 favoriteResponse.add(new FavoritePageResponse(likedPage.getName(),likedPage.getAbout(),likedPage.getId(),"fb.com/"+likedPage.getId()));
             }
         }
+        loggerFacebookEngine.info("Class FacebookEngine/Method getUsersFevoritePages: Done Logging");
         return favoriteResponse;
     }
 }

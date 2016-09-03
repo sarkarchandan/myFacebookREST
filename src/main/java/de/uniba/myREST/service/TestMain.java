@@ -27,15 +27,17 @@ public class TestMain {
         AccountInfoResponse newResponse = newEngine.getFacebookAccountInfo();
         //System.out.println(newResponse.getUserID());
         //System.out.println(newResponse.getUserName());
+        int count = 0;
 
         List<FavoritePageResponse> favoriteResponse = newEngine.getUsersFevoritePages();
         for (FavoritePageResponse eachResponse: favoriteResponse){
             System.out.println(eachResponse.getFavoritePageName());
-            System.out.println(eachResponse.getFavoritePageAbout());
             System.out.println(eachResponse.getFavoritePageId());
             System.out.println(eachResponse.getFavoritePageURI());
+            count++;
         }
 
+        System.out.println("Count"+count);
     }
 
 }

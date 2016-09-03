@@ -4,10 +4,7 @@ import de.uniba.myREST.engine.FacebookEngine;
 import de.uniba.myREST.response.FavoritePageResponse;
 
 import javax.print.attribute.standard.Media;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -48,6 +45,7 @@ public class FacebookService {
 
     @GET
     @Path("/favoritePages")
+    @Consumes(TEXT_PLAIN)
     @Produces(APPLICATION_JSON)
     public Response getFacebookUsersFavoritePages(){
 
