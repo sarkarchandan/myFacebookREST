@@ -9,13 +9,15 @@ public class AccountInfoResponse {
 
     private String userName;
     private String userID;
+    private long numberOfFriends;
 
     public AccountInfoResponse() {
     }
 
-    public AccountInfoResponse(String userName, String userID) {
+    public AccountInfoResponse(String userName, String userID, long numberOfFriends) {
         this.userName = userName;
         this.userID = userID;
+        this.numberOfFriends = numberOfFriends;
     }
 
     public String getUserName() {
@@ -32,5 +34,13 @@ public class AccountInfoResponse {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public long getNumberOfFriends() {
+        return numberOfFriends;
+    }
+
+    public void setNumberOfFriends(long numberOfFriends) {
+        this.numberOfFriends = numberOfFriends;
     }
 }

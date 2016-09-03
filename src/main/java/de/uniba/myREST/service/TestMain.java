@@ -5,14 +5,13 @@ import com.restfb.Connection;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Version;
-import com.restfb.types.FacebookType;
-import com.restfb.types.Likes;
-import com.restfb.types.Page;
-import com.restfb.types.User;
+import com.restfb.types.*;
 import de.uniba.myREST.engine.FacebookEngine;
 import de.uniba.myREST.response.AccountInfoResponse;
 import de.uniba.myREST.response.FavoritePageResponse;
+import de.uniba.myREST.response.UserPostResponse;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,24 +19,38 @@ import java.util.List;
  */
 public class TestMain {
 
-    public static void main (String[] args) {
+    private static String accessToken = "EAAXYmkoMJt0BACVZCZAPAcGfIFtpYFVoqTYlm73GcfPOZC96O2ZBxupBZBNn8dPKsxnsCmxenHTH03pvAkDcIobR1vjLt81TZAqUuanXFTYqQK1NHmciRvqfNpbvOw6zbZBpLQ6BoTu5wNz4qZCXdp0XtEmetav26RUZD";
 
-        FacebookEngine newEngine = new FacebookEngine();
+    /**
+     * Creating Facebook Client object to establish the connection with Facebook Graph Api
+     */
 
-        AccountInfoResponse newResponse = newEngine.getFacebookAccountInfo();
-        //System.out.println(newResponse.getUserID());
-        //System.out.println(newResponse.getUserName());
-        int count = 0;
 
-        List<FavoritePageResponse> favoriteResponse = newEngine.getUsersFevoritePages();
-        for (FavoritePageResponse eachResponse: favoriteResponse){
-            System.out.println(eachResponse.getFavoritePageName());
-            System.out.println(eachResponse.getFavoritePageId());
-            System.out.println(eachResponse.getFavoritePageURI());
-            count++;
-        }
+    public static void main(String[] args) {
 
-        System.out.println("Count"+count);
+
+
+
+        FacebookClient fbClientObject = new DefaultFacebookClient(accessToken, Version.LATEST);
+
+        //This local variable is going to contain the User posts and return them as a list of Objects.
+        List<UserPostResponse> postsResponse = new LinkedList<>();
+
+        Connection<User> myFriends = fbClientObject.fetchConnection("me/friends", User.class);
+
+
+
+        System.out.println(myFriends.getTotalCount());
+
+
+
+
     }
+
+
+
+
+
+
 
 }

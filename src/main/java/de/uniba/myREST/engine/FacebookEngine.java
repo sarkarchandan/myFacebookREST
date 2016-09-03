@@ -5,17 +5,20 @@ import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Version;
 import com.restfb.types.Page;
+import com.restfb.types.Post;
 import com.restfb.types.User;
 import de.uniba.myREST.response.AccountInfoResponse;
 import de.uniba.myREST.response.FavoritePageResponse;
+import de.uniba.myREST.response.UserPostResponse;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * Class FacebookEngine is responsible for the establishing connection with Facebook Graph Api and fetch the desired information from our account
+ * Class FacebookEngine is responsible for the establishing connection with Facebook Graph Api and fetch the desired information from the account of the user
  * Created by chandan on 03.09.16.
  */
 public class FacebookEngine {
@@ -37,17 +40,18 @@ public class FacebookEngine {
 
 
     /**
-     * Method getFacebookAccountInfo fetches my account information from Facebook Graph Api.
+     * Method getFacebookAccountInfo fetches account of the user from Facebook Graph Api.
      * @return
      */
     public AccountInfoResponse getFacebookAccountInfo(){
         loggerFacebookEngine.info("Class FacebookEngine/Method getFacebookAccountInfo: Start Logging");
 
         AccountInfoResponse myAccountInfoResponse;
-        User mySelf =fbClientObject.fetchObject("me",User.class);
 
-        myAccountInfoResponse = new AccountInfoResponse(mySelf.getName(),
-                mySelf.getId());
+        User mySelf =fbClientObject.fetchObject("me",User.class);
+        Connection<User> myFriend = fbClientObject.fetchConnection("me/friends",User.class);
+
+        myAccountInfoResponse = new AccountInfoResponse(mySelf.getName(),mySelf.getId(),myFriend.getTotalCount());
 
         loggerFacebookEngine.info("Class FacebookEngine/Method getFacebookAccountInfo: Done Logging");
         return myAccountInfoResponse;
@@ -55,12 +59,17 @@ public class FacebookEngine {
     }
 
 
+    /**
+     * Method getUsersFevoritePages fetches the entire List of pages liked by the user
+     * @return
+     */
     public List<FavoritePageResponse> getUsersFevoritePages(){
 
+        loggerFacebookEngine.info("Class FacebookEngine/Method getUsersFevoritePages: Start Logging");
+
+        //This local variable is going to contain the liked pages and return them as a list of Objects.
         List<FavoritePageResponse> favoriteResponse = new LinkedList<>();
 
-
-        loggerFacebookEngine.info("Class FacebookEngine/Method getUsersFevoritePages: Start Logging");
         Connection<Page> favoritePage = fbClientObject.fetchConnection("me/likes",Page.class);
 
         for(List<Page> newPage: favoritePage){
@@ -72,4 +81,32 @@ public class FacebookEngine {
         loggerFacebookEngine.info("Class FacebookEngine/Method getUsersFevoritePages: Done Logging");
         return favoriteResponse;
     }
+
+
+    public List<UserPostResponse> getUserPosts(int numberOfPosts){
+
+        loggerFacebookEngine.info("Class FacebookEngine/Method getUserPosts: Start Logging");
+
+        //This local variable is going to contain the User posts and return them as a list of Objects.
+        List<UserPostResponse> postsResponse = new LinkedList<>();
+
+        Connection<Post> userPosts = fbClientObject.fetchConnection("me/feed",Post.class);
+
+        for(List<Post> allUserPosts: userPosts){
+            for(Post eachUserPost: allUserPosts){
+
+                postsResponse.add(new UserPostResponse(
+                        eachUserPost.getId(),
+                        eachUserPost.getStory(),
+                        eachUserPost.getCreatedTime().toString()
+                        ));
+                }
+            }
+        loggerFacebookEngine.info("Class FacebookEngine/Method getUserPosts: Done Logging");
+        return postsResponse.subList(0,numberOfPosts);
+    }
+
+
+
 }
+
