@@ -1,0 +1,20 @@
+AppID: 1645532062426845
+App Secret: d72ebf4abafbb4ab9c2a53a2d9a05bb6
+
+Extended Access Token: EAAXYmkoMJt0BACVZCZAPAcGfIFtpYFVoqTYlm73GcfPOZC96O2ZBxupBZBNn8dPKsxnsCmxenHTH03pvAkDcIobR1vjLt81TZAqUuanXFTYqQK1NHmciRvqfNpbvOw6zbZBpLQ6BoTu5wNz4qZCXdp0XtEmetav26RUZD
+
+In order to build this program, I have created a Facebook application in developer mode called mySocialNetWorkRESTfulApp and obtained my
+AppID and App Secret.
+Using my Application ID and Application Secret along with a temporary access token, I have generated my Extended Access Token using 
+
+obtainExtendedAccessToken method of the FacebookClient class
+
+String temporaryAccessToken = "EAAXYmkoMJt0BACVZCZAPAcGfIFtpYFVoqTYlm73GcfPOZC96O2ZBxupBZBNn8dPKsxnsCmxenHTH03pvAkDcIobR1vjLt81TZAqUuanXFTYqQK1NHmciRvqfNpbvOw6zbZBpLQ6BoTu5wNz4qZCXdp0XtEmetav26RUZD";
+
+        FacebookClient fbClientObject = new DefaultFacebookClient(temporaryAccessToken,Version.LATEST);
+
+        FacebookClient.AccessToken extendedAccessToken = fbClientObject.obtainExtendedAccessToken("1645532062426845","d72ebf4abafbb4ab9c2a53a2d9a05bb6");
+
+        System.out.println(extendedAccessToken.getAccessToken());
+        System.out.println(extendedAccessToken.getExpires());
+
