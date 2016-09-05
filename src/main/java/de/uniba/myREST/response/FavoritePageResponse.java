@@ -1,7 +1,8 @@
 package de.uniba.myREST.response;
 
 /**
- * Created by chandan on 03.09.16.
+ * Define FavoritePageResponse as a custom datatype
+ * @author Created by chandan on 03.09.16.
  */
 public class FavoritePageResponse {
 
@@ -13,6 +14,13 @@ public class FavoritePageResponse {
     public FavoritePageResponse() {
     }
 
+    /**
+     * Constructor for class FavoritePageResponse
+     * @param favoritePageName
+     * @param favoritePageAbout
+     * @param favoritePageId
+     * @param favoritePageURI
+     */
     public FavoritePageResponse(String favoritePageName, String favoritePageAbout, String favoritePageId, String favoritePageURI) {
         this.favoritePageName = favoritePageName;
         this.favoritePageAbout = favoritePageAbout;
@@ -20,6 +28,9 @@ public class FavoritePageResponse {
         this.favoritePageURI = favoritePageURI;
     }
 
+    /*
+     * Getter and Setter methods for instance variables
+     */
     public String getFavoritePageName() {
         return favoritePageName;
     }

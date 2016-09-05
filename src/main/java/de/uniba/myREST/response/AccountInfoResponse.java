@@ -3,7 +3,8 @@ package de.uniba.myREST.response;
 import java.util.List;
 
 /**
- * Created by chandan on 03.09.16.
+ * Defines AccountInfoResponse as custom datatype
+ * @author Created by chandan on 03.09.16.
  */
 public class AccountInfoResponse {
 
@@ -14,15 +15,22 @@ public class AccountInfoResponse {
     public AccountInfoResponse() {
     }
 
+    /**
+     * Constructor for class AccountInfoResponse
+     * @param userName
+     * @param userID
+     * @param numberOfFriends
+     */
     public AccountInfoResponse(String userName, String userID, long numberOfFriends) {
         this.userName = userName;
         this.userID = userID;
         this.numberOfFriends = numberOfFriends;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    /*
+     * Getter and Setter methods for instance variables
+     */
+    public String getUserName() {return userName; }
 
     public void setUserName(String userName) {
         this.userName = userName;

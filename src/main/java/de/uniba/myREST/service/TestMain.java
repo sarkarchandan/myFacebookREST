@@ -15,15 +15,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Temporary class created for testing
  * Created by chandan on 03.09.16.
  */
 public class TestMain {
 
     private static String accessToken = "EAAXYmkoMJt0BACVZCZAPAcGfIFtpYFVoqTYlm73GcfPOZC96O2ZBxupBZBNn8dPKsxnsCmxenHTH03pvAkDcIobR1vjLt81TZAqUuanXFTYqQK1NHmciRvqfNpbvOw6zbZBpLQ6BoTu5wNz4qZCXdp0XtEmetav26RUZD";
-
-    /**
-     * Creating Facebook Client object to establish the connection with Facebook Graph Api
-     */
 
 
     public static void main(String[] args) {
@@ -46,10 +43,6 @@ public class TestMain {
 
 
     }
-
-
-
-
 
 
 
