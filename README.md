@@ -1,5 +1,5 @@
 # myFacebookREST
-[RestFB](http://restfb.com/) is a Facebook Graph API, open source software released under the terms of the MIT License. This API is being used in this implementation to fetch the basic account information for the user along with all liked Facebook pages and a given no of Facebook posts made by or associated  with the user. All outcomes will be serialized as JSON objects. Any web browser or REST Client e.g. Chrome Advanced REST Client could be used for it. This implementation is built in Linux environment.
+[RestFB](http://restfb.com/) is a Facebook Graph API, open source software released under the terms of the MIT License. This API is being used in this implementation to fetch the basic account information for the user along with all liked Facebook pages and a given no of Facebook posts made by or associated  with the user. All outcomes will be serialized as JSON objects. Any web browser or REST Client e.g. Chrome Advanced REST Client could be used for it. This implementation is built in Linux environment. :octocat:
 
 ## Assumption
 - This implementation creates Web Application Archive (.war) file and deploys the same in [Glassfish](https://glassfish.java.net/) container which can be downloaded from the link.
