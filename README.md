@@ -33,10 +33,11 @@ $ gradle eclipse
 $ gradle build
 $ gradle deploy
 ```
-## Sample Execution
+
+## Sample Execution and Outcomes
 Open the web browser or Chrome Advanced REST Client and enter the URI with query strings such as:
 - For account Information: `http://localhost:8080/facebookData/accountInfo/`
-### Sample Outcome
+
 ```
 {
 "numberOfFriends": #No Of Friends{long}#
