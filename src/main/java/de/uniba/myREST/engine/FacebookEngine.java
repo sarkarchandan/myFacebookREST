@@ -31,7 +31,7 @@ public class FacebookEngine {
     /*
      * User's Access Token should go here
      */
-    private static String accessToken = "EAAXYmkoMJt0BACVZCZAPAcGfIFtpYFVoqTYlm73GcfPOZC96O2ZBxupBZBNn8dPKsxnsCmxenHTH03pvAkDcIobR1vjLt81TZAqUuanXFTYqQK1NHmciRvqfNpbvOw6zbZBpLQ6BoTu5wNz4qZCXdp0XtEmetav26RUZD";
+    private static String accessToken = "Your Access Token goes here";
 
     /*
      * Creating Facebook Client object to establish the connection with Facebook Graph Api
